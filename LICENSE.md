@@ -1,6 +1,6 @@
 The MieSeries.jl package is licensed under the MIT "Expat" License:
 
-> Copyright (c) 2016: Kristof Cools.
+> Copyright (c) 2016: Ignace Bogaert, Yves Beghein, and Kristof Cools.
 > 
 > 
 > Permission is hereby granted, free of charge, to any person obtaining a copy
