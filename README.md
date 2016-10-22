@@ -1,7 +1,9 @@
 # MieSeries
 
-[![Build Status](https://travis-ci.org/krcools/MieSeries.jl.svg?branch=master)](https://travis-ci.org/krcools/MieSeries.jl)
+Tools to solve scattering and transmission by spherical objects using a series expansion in spherical harmonics. Examples for several acoustics and electromagnetic problems will be included.
 
-[![Coverage Status](https://coveralls.io/repos/krcools/MieSeries.jl/badge.svg?branch=master&service=github)](https://coveralls.io/github/krcools/MieSeries.jl?branch=master)
+**Note** This package works with under the convention that
 
-[![codecov.io](http://codecov.io/github/krcools/MieSeries.jl/coverage.svg?branch=master)](http://codecov.io/github/krcools/MieSeries.jl?branch=master)
+```math
+a(t) = Re(a*e^{-iωt})
+```
