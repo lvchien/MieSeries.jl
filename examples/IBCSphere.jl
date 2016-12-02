@@ -39,7 +39,7 @@ function relationSH(obj :: NdeltaSphere, ll)
 	dH1id = id*r*dh1id                                                                                # Derivative of Ricatti-Hankel of first kind
 
 	vnxX = Zn* 2.0*Jid.*H1id;
-	vX = Zn* 2.0*(dJid.*dH1id + ll.* (ll+1).* jid .*h1id /(r*r) );
+	vX = Zn* 2.0*(dJid.*dH1id + ll.* (ll+1).* jid .*h1id);
 	return (vnxX, vX);
 end
 
