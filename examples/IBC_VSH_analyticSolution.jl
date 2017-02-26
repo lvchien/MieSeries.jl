@@ -6,7 +6,7 @@ using FixedSizeArrays;
 
 	#################################################
 	#  Xlm and Ulm testing
-	
+
 type VectorSphericalHarmonicX <: BoundaryElements.Functional
 	l::Int
 	m::Int
@@ -59,8 +59,9 @@ k = omega * sqrt(epsilon0*mu0);
 Z = (0.7+0.3*im)*eta0;
 delta = 1.2;
 
-l = 2;
-m = -2;
+#l = 2;
+l = 1
+m = -1;
 
 	####################################
 	# Operators
@@ -71,12 +72,14 @@ gamma = meshsphere(R, h);
 f = raviartthomas(gamma);
 g = buffachristiansen(gamma);
 
-Ts = MWWeaklySingular(k);
-Th = MWHyperSingular(k);
+#Ts = MWWeaklySingular(k);
+#Th = MWHyperSingular(k);
+Ts = MWWeaklySingular(im*k);
+Th = MWHyperSingular(im*k);
 K = MWDoubleLayer3D(im*k);
 N = NCross();
 I = Identity();
-Tdelta = MWWeaklySingular(-im/delta);
+Tdelta = MWWeaklySingular(1/delta);
 
 println("Ts_nxff"); Ts_nxff = 1.0*assemble(Ts,f,f);
 println("Th_nxff"); Th_nxff = -1.0*assemble(Th,f,f); # T = -ikTs + Th/ik is preferred instead of -ikTs - Th/ik
@@ -134,7 +137,7 @@ function BesselFamilyFunctions(order, arg)
 	dJ = j + arg*dj; # d(z*j(z))/dz
 	dH1 = h1 + arg*dh1;
 	dH2 = 2.0*dJ-dH1;
-	
+
 	return (j, h1, h2, dj, dh1, dh2, J, H1, H2, dJ, dH1, dH2);
 end
 
@@ -150,7 +153,7 @@ println("im*J_Rid*dH2_Rid-im*dJ_Rid*H2_Rid = ($(im*J_Rid*dH2_Rid-im*dJ_Rid*H2_Ri
 
 	#########################################
 	# Numerical/Analytical comparisons
-	
+
 # N
 
 num_NX = N_ff*IGram*Xlm_f;
