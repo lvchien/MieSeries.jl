@@ -8,7 +8,7 @@ export scatteredfield
 """
     Ylm(K, r)
 
-Computes the spherical harmonics up to order `K-1` in direction `r`.
+Computes the spherical harmonics up to order `K-1` in direction `r` .
 """
 function Ylm(K, r)
 
