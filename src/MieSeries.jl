@@ -5,6 +5,8 @@ export excite
 export farfield
 export scatteredfield
 
+using SpecialFunctions
+
 """
     Ylm(K, r)
 
@@ -202,10 +204,10 @@ function excite(obj, omega, pol)
 
     # Bessels, hankels and derivatives
     ll = collect(1:K)
-    jk0   = sbessel(ll, k0*r)
-    djk0 = ((ll+1).*sbessel(ll-1, k0*r)  - ll.*sbessel(ll+1, k0*r))  ./ (2*ll+1)
-    hk0   = shankel(ll, k0*r)
-    dhk0 = ((ll+1).*shankel(ll-1, k0*r)  - ll.*shankel(ll+1, k0*r))  ./ (2*ll+1)
+    jk0   = sbessel.(ll, k0*r)
+    djk0 = ((ll+1).*sbessel.(ll-1, k0*r)  - ll.*sbessel.(ll+1, k0*r))  ./ (2*ll+1)
+    hk0   = shankel.(ll, k0*r)
+    dhk0 = ((ll+1).*shankel.(ll-1, k0*r)  - ll.*shankel.(ll+1, k0*r))  ./ (2*ll+1)
 
     # compute the expansion coefficients for all requested polarisations
     for p in pols
