@@ -1,13 +1,13 @@
 using MieSeries;
 
-type IBCSphere
+struct IBCSphere
 	ZsOverEta0  # normalized impedance
     radius
     background_permittivity
     background_permeability
 end
 
-type NdeltaSphere
+struct NdeltaSphere
 	ZsOverEta0  # normalized impedance
 	delta
     radius

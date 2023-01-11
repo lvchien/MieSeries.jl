@@ -6,6 +6,7 @@ export farfield
 export scatteredfield
 
 using SpecialFunctions
+using LinearAlgebra
 
 """
     Ylm(K, r)
@@ -53,9 +54,9 @@ function Xlm(K, r)
     x = r[1]; y = r[2]; z = r[3];
 
     Y = Ylm(K, r);
-    Xx = zeros(Y); Xy = zeros(Y); Xz = zeros(Y);
-    Yx = zeros(Y); Yy = zeros(Y); Yz = zeros(Y);
-    Zx = zeros(Y); Zy = zeros(Y); Zz = zeros(Y);
+    Xx = zero(Y); Xy = zero(Y); Xz = zero(Y);
+    Yx = zero(Y); Yy = zero(Y); Yz = zero(Y);
+    Zx = zero(Y); Zy = zero(Y); Zz = zero(Y);
 
     for l = 1:(K-1)
         Ymin = sqrt(2*l) * Y[(l+1)*(l+1)-1];
@@ -156,13 +157,13 @@ function MNlm(K, r, k, f)
 end
 
 
-type PECSphere
+struct PECSphere
     radius
     background_permittivity
     background_permeability
 end
 
-type Expansion
+struct Expansion
     numterms
     omega
     la1

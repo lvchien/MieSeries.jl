@@ -7,12 +7,12 @@ using FixedSizeArrays;
 	#################################################
 	#  Xlm and Ulm testing
 
-type VectorSphericalHarmonicX <: BoundaryElements.Functional
+struct VectorSphericalHarmonicX <: BoundaryElements.Functional
 	l::Int
 	m::Int
 end
 
-type VectorSphericalHarmonicU <: BoundaryElements.Functional
+struct VectorSphericalHarmonicU <: BoundaryElements.Functional
 	l::Int
 	m::Int
 end
